@@ -1,16 +1,14 @@
 package com.finixstore.optimizingrv
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.finixstore.optimizingrv.databinding.ActivityMainBinding
 import com.finixstore.optimizingrv.databinding.ItemListBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity() {
     private lateinit var rv: RecyclerView
     private lateinit var fruitAdapter: BaseRecyclerViewAdapter<String>
     private lateinit var binding: ActivityMainBinding
@@ -20,7 +18,12 @@ class MainActivity : AppCompatActivity() {
         "Banana",
         "Cherry",
         "Guava",
+        "Lemon", "Apple",
+        "Banana",
+        "Cherry",
+        "Guava",
         "Lemon",
+        "Mango"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         itemBinding = ItemListBinding.inflate(layoutInflater)
 
         fruitAdapter = BaseRecyclerViewAdapter(
-            R.layout.item_list,
-            true
+            R.layout.item_list_2,
+            false
         ) { position, data, view ->
             // init view on recycler view adapter
             val tvNumber = view.findViewById<AppCompatTextView>(R.id.tv_number)
@@ -41,11 +44,6 @@ class MainActivity : AppCompatActivity() {
             // set data to view
             tvNumber.text = "Fruit #${position + 1}"
             tvFruit.text = data
-
-            view.findViewById<LinearLayoutCompat>(R.id.itemList1).setOnClickListener {
-                startActivity(Intent(this, MainActivity2::class.java))
-
-            }
         }
         rv = findViewById(R.id.rv)
         //binding.rv.apply {  }
@@ -54,10 +52,5 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         rv.adapter = fruitAdapter
         fruitAdapter.setItems(dummyData)
-
-
-        binding.btnNext.setOnClickListener {
-            startActivity(Intent(this, MainActivity2::class.java))
-        }
     }
 }

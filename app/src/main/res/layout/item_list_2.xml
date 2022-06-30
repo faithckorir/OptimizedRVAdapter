@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/itemList1"
     android:orientation="vertical"
     android:paddingHorizontal="16dp"
     android:paddingVertical="8dp">
@@ -20,11 +19,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         tools:text="Mango"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_fruix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="test layout baby"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#eee"
+        android:background="#000"
         android:layout_marginTop="8dp"
         />
 
